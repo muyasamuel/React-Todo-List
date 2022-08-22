@@ -1,8 +1,18 @@
 .listDiv{
     background-color:  rgb(98, 98, 182);
     border-radius: 20px;
-    height: auto;
-    width: 50rem;
-    margin: auto;
+    height: 40rem;
+    width: 70rem;
+    margin: 10px auto;
 
+}
+
+.listItem {
+    padding: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 14px;
+    background-color: white;
+
+    width: 90%;
+    margin: 10px  auto;
 }
