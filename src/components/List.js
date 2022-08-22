@@ -15,10 +15,10 @@ function List({list}) {
                 <article key={item.id} className={classes.listItem}>
                     {item.name}
                     
-                <span>
-                     <FaEdit />
-                    <MdDelete />
-                </span>
+                <div className={classes.action}>
+                   <button> Edit <FaEdit /></button> 
+                   <button> Delete <MdDelete /></button>
+                </div>
                    
                     
                 </article>
