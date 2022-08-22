@@ -1,10 +1,11 @@
-import React from 'react'
+import React from 'react';
+import classes from './Input.module.css'
 
 function input() {
   return (
-    <div>
-        <input  type='text' placeholder='Finish my react projects' />
-        <button>Submit</button>
+    <div className={classes.inputDiv}>
+        <input className={classes.inputField} type='text' placeholder='Finish my react projects' />
+        <button className={classes.actions}>Submit</button>
     </div>
   )
 }
