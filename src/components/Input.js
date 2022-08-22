@@ -8,7 +8,7 @@ function Input(props) {
   const submitHandler = (e) =>{
     e.preventDefault();
     
-    console.log(name);
+  
     const newName = {
       name: name,
 
