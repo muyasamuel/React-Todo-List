@@ -6,7 +6,7 @@ import classes from './List.module.css';
 
 
 
-function List({list, onDelete}) {
+function List({list, onDelete, clearAll}) {
 
  
  
@@ -28,7 +28,7 @@ function List({list, onDelete}) {
                 
             )
         })}
-        <button className={classes.clearBtn}>Clear All list</button>
+        <button className={classes.clearBtn} onClick={clearAll}>Clear All list</button>
     </div>
        
     

@@ -31,19 +31,23 @@ function App() {
     const newList = list.filter((item) => item.id !== id);
     setList(newList);
 
-  }
+  };
 
   const addTodoHandler = (newName) => {
     console.log(newName);
     setList([...list, newName]);
 
+  };
 
-
+  const clearList = () => {
+    setList([])
   }
+
+
   return (
     <div className="App">
      <Input onAddTodo = {addTodoHandler} />
-     <List list={list} onDelete={onDeleteHandler}/>
+     <List list={list} onDelete={onDeleteHandler} clearAll={clearList}/>
     </div>
   );
 }
