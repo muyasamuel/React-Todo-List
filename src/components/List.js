@@ -25,8 +25,10 @@ function List({list, onDelete}) {
                    
                     
                 </article>
+                
             )
         })}
+        <button className={classes.clearBtn}>Clear All list</button>
     </div>
        
     

@@ -23,3 +23,15 @@
     justify-content: flex-end;
 }
 
+.clearBtn{
+    margin-top: 5rem;
+    padding: 10px 25px;
+    background-color: rgb(212, 22, 22);
+    color: #fff;
+    border-radius: 8px;
+    outline: none;
+    border: none;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
