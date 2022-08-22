@@ -27,17 +27,23 @@ const todos = [
 function App() {
   const [ list , setList]  = useState(todos);
 
+  const onDeleteHandler = (id) => {
+    const newList = list.filter((item) => item.id !== id);
+    setList(newList);
+
+  }
+
   const addTodoHandler = (newName) => {
     console.log(newName);
     setList([...list, newName]);
-    
+
 
 
   }
   return (
     <div className="App">
      <Input onAddTodo = {addTodoHandler} />
-     <List list={list} />
+     <List list={list} onDelete={onDeleteHandler}/>
     </div>
   );
 }

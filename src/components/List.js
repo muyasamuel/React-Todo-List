@@ -6,18 +6,21 @@ import classes from './List.module.css';
 
 
 
-function List({list}) {
+function List({list, onDelete}) {
+
+ 
  
   return (
     <div className={classes.listDiv}>
         {list.map((item) => {
+            const {id , name} = item
             return (
                 <article key={item.id} className={classes.listItem}>
-                    {item.name}
+                    {name}
                     
                 <div className={classes.action}>
                    <button> Edit <FaEdit /></button> 
-                   <button> Delete <MdDelete /></button>
+                   <button onClick={() => onDelete(id)}> Delete <MdDelete /></button>
                 </div>
                    
                     
