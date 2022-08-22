@@ -1,3 +1,5 @@
+import { MdDelete } from "react-icons/md";
+import { FaEdit  } from "react-icons/fa";
 import React  from 'react';
 import classes from './List.module.css';
 
@@ -10,9 +12,16 @@ function List({list}) {
     <div className={classes.listDiv}>
         {list.map((item) => {
             return (
-                <div key={item.id} className={classes.listItem}>
+                <article key={item.id} className={classes.listItem}>
                     {item.name}
-                </div>
+                    
+                <span>
+                     <FaEdit />
+                    <MdDelete />
+                </span>
+                   
+                    
+                </article>
             )
         })}
     </div>
