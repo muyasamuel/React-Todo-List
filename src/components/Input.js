@@ -4,12 +4,15 @@ import classes from "./Input.module.css";
 function Input(props) {
   const [name, setName] = useState("");
 
+ 
+
 
   const submitHandler = (e) =>{
     e.preventDefault();
     
   
     const newName = {
+      id: Math.random().toString(16).slice(2),
       name: name,
 
     }
