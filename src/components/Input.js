@@ -10,7 +10,6 @@ function Input(props) {
   const submitHandler = (e) =>{
     e.preventDefault();
     
-  
     const newName = {
       id: Math.random().toString(16).slice(2),
       name: name,

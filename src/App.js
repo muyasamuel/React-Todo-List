@@ -29,7 +29,8 @@ function App() {
 
   const addTodoHandler = (newName) => {
     console.log(newName);
-   
+    setList([...list, newName]);
+    
 
 
   }
