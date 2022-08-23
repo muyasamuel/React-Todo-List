@@ -4,6 +4,7 @@ import './App.css';
 import Header from './components/Header'
 import Input from './components/Input';
 import List from './components/List';
+import Alert from './components/Alert'
 
 const todos = [
   {
@@ -47,6 +48,7 @@ function App() {
   return (
     <div className="App">
      <Header />
+     <Alert />
      <Input onAddTodo = {addTodoHandler} />
      <List list={list} onDelete={onDeleteHandler} clearAll={clearList}/>
     </div>
