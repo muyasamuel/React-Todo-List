@@ -54,8 +54,11 @@ function App() {
     <div className="App">
      <Header />
      { alert.show && <Alert {...alert} />}
-     <Input onAddTodo = {addTodoHandler}  />
+     <main className='main'>
+      <Input onAddTodo = {addTodoHandler}  />
      <List list={list} onDelete={onDeleteHandler} clearAll={clearList}/>
+     </main>
+    
     
     </div>
   );

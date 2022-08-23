@@ -2,7 +2,7 @@ import React from 'react'
 
 function Alert({msg , type}) {
   return (
-    <div><p>Alert</p></div>
+    <div><p>alert</p></div>
   )
 }
 
