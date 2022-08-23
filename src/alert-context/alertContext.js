@@ -1,14 +1,7 @@
 import { createContext, useState } from 'react';
 
 
-export const alertContext = createContext({
-    alert: {
-        show: false,
-        msg: '',
-        type: ''
-      },
-      setAlert: () => {}
-});
+export const alertContext = createContext();
 
 const AlertContextProvider = (props) => {
        

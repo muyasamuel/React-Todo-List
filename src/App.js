@@ -1,10 +1,11 @@
 
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import './App.css';
 import Header from './components/Header'
 import Input from './components/Input';
 import List from './components/List';
 import Alert from './components/Alert'
+import { alertContext } from './alert-context/alertContext';
 
 const todos = [
   {
@@ -27,6 +28,7 @@ const todos = [
 ];
 
 function App() {
+ const [ alert ] = useContext(alertContext)
   const [ list , setList]  = useState(todos);
  
 
@@ -54,6 +56,7 @@ function App() {
      { alert.show && <Alert {...alert} />}
      <Input onAddTodo = {addTodoHandler}  />
      <List list={list} onDelete={onDeleteHandler} clearAll={clearList}/>
+    
     </div>
   );
 }

@@ -2,8 +2,8 @@ import React from 'react'
 
 function Alert({msg , type}) {
   return (
-    <div><p>{msg}</p></div>
+    <div><p>Alert</p></div>
   )
 }
 
-export default Alert
+export default Alert;

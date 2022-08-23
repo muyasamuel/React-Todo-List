@@ -1,37 +1,45 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { alertContext } from "../alert-context/alertContext";
 import classes from "./Input.module.css";
 
-function Input({onAddTodo, show, setAlert} ) {
+function Input(props) {
+ const [  setAlert] =  useContext(alertContext)
   const [name, setName] = useState("");
 
- 
 
 
-  const submitHandler = (e) =>{
+  const inputValue = () => setAlert({show: true, msg: 'kamikaze'})
+
+
+  const onSubmitHandler = (e) =>{
     e.preventDefault();
 
-
-    // if(name.trim() === ''){
-    //   setAlert({show: show, msg: 'please input Value'})
-    // }
-    // else {
+    if(!name){
+     
+      inputValue();
+   
+    }
+    
       const newName = {
       id: Math.random().toString(16).slice(2),
       name: name,
-
-    
-  
-
-    }
+    };
+   
     
 
-    onAddTodo(newName);
+
+   
+    
+     
+
+
+    props.onAddTodo(newName);
 
     setName('');
 
   }
   return (
-    <form className={classes.inputDiv} onSubmit={submitHandler}>
+    <form className={classes.inputDiv} onSubmit={onSubmitHandler}>
       <input
         className={classes.inputField}
         type="text"
@@ -43,5 +51,7 @@ function Input({onAddTodo, show, setAlert} ) {
     </form>
   );
 }
+
+
 
 export default Input;
