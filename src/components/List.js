@@ -11,7 +11,7 @@ function List({list, onDelete, clearAll}) {
  
  
   return (
-    <div className={classes.listDiv}>
+    <div>
         {list.map((item) => {
             const {id , name} = item
             return (
