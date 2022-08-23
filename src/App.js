@@ -1,6 +1,7 @@
 
 import { useState } from 'react';
 import './App.css';
+import Header from './components/Header'
 import Input from './components/Input';
 import List from './components/List';
 
@@ -34,7 +35,6 @@ function App() {
   };
 
   const addTodoHandler = (newName) => {
-    console.log(newName);
     setList([...list, newName]);
 
   };
@@ -46,6 +46,7 @@ function App() {
 
   return (
     <div className="App">
+     <Header />
      <Input onAddTodo = {addTodoHandler} />
      <List list={list} onDelete={onDeleteHandler} clearAll={clearList}/>
     </div>
