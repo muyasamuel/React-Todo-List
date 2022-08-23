@@ -28,6 +28,11 @@ const todos = [
 
 function App() {
   const [ list , setList]  = useState(todos);
+  const [alert, setAlert] = useState({
+    show: false,
+    msg: '',
+    type: ''
+  })
 
   const onDeleteHandler = (id) => {
     const newList = list.filter((item) => item.id !== id);
@@ -48,7 +53,7 @@ function App() {
   return (
     <div className="App">
      <Header />
-     <Alert />
+     { alert.show && <Alert {...alert} />}
      <Input onAddTodo = {addTodoHandler} />
      <List list={list} onDelete={onDeleteHandler} clearAll={clearList}/>
     </div>

@@ -1,8 +1,8 @@
 import React from 'react'
 
-function Alert() {
+function Alert({msg , type}) {
   return (
-    <div>Alert</div>
+    <div><p>{msg}</p></div>
   )
 }
 
