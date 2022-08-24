@@ -1,0 +1,19 @@
+.alert{
+    text-transform: uppercase;
+    border: 1px dotted black;
+    border-radius: 5px;
+    color: black;
+
+}
+
+.alert-success{
+    background-color: rgb(124, 221, 124);
+ 
+    
+}
+
+.alert-danger{
+    background-color: rgb(245, 120, 120);
+   
+    
+}

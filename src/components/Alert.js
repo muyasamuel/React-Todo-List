@@ -1,8 +1,9 @@
-import React from 'react'
+import React from 'react';
+import './Alert.css'
 
 function Alert({msg , type}) {
   return (
-    <div><p>alert</p></div>
+    <div className={`alert alert-${type}`}><p>{msg}</p></div>
   )
 }
 

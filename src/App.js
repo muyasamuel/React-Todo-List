@@ -51,26 +51,35 @@ function App() {
 
   const clearList = () => {
     setList([]);
+    setAlert({show: true, msg: ' Cleared the list ',  type: 'danger'})
   };
 
   const onSubmitHandler = (e) =>{
     e.preventDefault();
 
- 
-    const newName = {
+    if(name.trim() === ''){
+      setAlert({show: true, msg: ' Please input a VALUE',  type: 'danger'})
+    }else{
+      const newName = {
       id: Math.random().toString(16).slice(2),
       name: name,
     };
     setList([...list, newName]);
+    setAlert({show: true, msg: ' successful!!! You added a ToDo',  type: 'success'})
     setName('');
 
-  }
+    }
+
+ 
+   
+  };
 
   return (
     <div className="App">
       <Header />
-      {alert.show && <Alert {...alert} />}
+      
       <main className="main">
+        {alert.show && <Alert {...alert} />}
       <form className='inputDiv' onSubmit={onSubmitHandler}>
         <input
           className='inputField'
