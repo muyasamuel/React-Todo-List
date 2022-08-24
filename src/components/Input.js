@@ -1,10 +1,12 @@
-import React, { useContext, useState } from "react";
+import React, { useContext} from "react";
 import { alertContext } from "../alert-context/alertContext";
+import { inputContext } from "../alert-context/inputContext";
 import classes from "./Input.module.css";
 
 function Input({onAddTodo, editing}) {
- const [  setAlert] =  useContext(alertContext)
-  const [name, setName] = useState("");
+ const [  setAlert] =  useContext(alertContext);
+ const [ name, setName] = useContext(inputContext);
+
 
 
 

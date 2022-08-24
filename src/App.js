@@ -31,11 +31,11 @@ function App() {
   const [editing, setEditing] = useState(false);
 
 
-  const editItem = (id) => {
-    const actualItem = list.find((item) => item.id ===  id);
-    setEditing(true);
-    // setName(actualItem.name);
-  }
+  // const editItem = (id) => {
+  //   const actualItem = list.find((item) => item.id ===  id);
+  //   setEditing(true);
+  //   // setName(actualItem.name);
+  // }
 
   const onDeleteHandler = (id) => {
     const newList = list.filter((item) => item.id !== id);
