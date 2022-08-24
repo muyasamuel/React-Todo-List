@@ -34,7 +34,7 @@ function App() {
   const editItem = (id) => {
     const actualItem = list.find((item) => item.id ===  id);
     setEditing(true);
-    setName(actualItem.name);
+    // setName(actualItem.name);
   }
 
   const onDeleteHandler = (id) => {
