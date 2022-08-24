@@ -1,26 +1,22 @@
-import React, { useContext} from "react";
-import { alertContext } from "../alert-context/alertContext";
-import { inputContext } from "../alert-context/inputContext";
+import React, {  useState} from "react";
+
+
 import classes from "./Input.module.css";
 
 function Input({onAddTodo, editing}) {
- const [  setAlert] =  useContext(alertContext);
- const [ name, setName] = useContext(inputContext);
+
+ const [ name, setName] = useState('');
 
 
 
 
-  const inputValue = () => setAlert({show: true, msg: 'kamikaze'})
+ 
 
 
   const onSubmitHandler = (e) =>{
     e.preventDefault();
 
-    if(!name){
-     
-      inputValue();
-   
-    }
+  
     
       const newName = {
       id: Math.random().toString(16).slice(2),

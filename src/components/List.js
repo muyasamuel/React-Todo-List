@@ -6,7 +6,7 @@ import classes from './List.module.css';
 
 
 
-function List({list, onDelete, clearAll}) {
+function List({list, onDelete, clearAll, editItem}) {
 
  
  
@@ -19,7 +19,7 @@ function List({list, onDelete, clearAll}) {
                     {name}
                     
                 <div className={classes.action}>
-                   <button> Edit <FaEdit /></button> 
+                   <button onClick={()=> editItem(id)}> Edit <FaEdit /></button> 
                    <button onClick={() => onDelete(id)}> Delete <MdDelete /></button>
                 </div>
                    
