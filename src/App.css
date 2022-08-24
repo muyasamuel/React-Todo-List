@@ -69,11 +69,15 @@
 
 .actions{
    padding: 14px 25px;
-   background-color:brown;
+   background-color: rgb(212, 22, 22);
    color: #fff;
    text-transform: capitalize;
    border-radius: 7px;
    outline: none;
    border: none;
+}
+
+.actions:hover{
+  box-shadow: 0 8px 11px 0 rgba(0,0,0,0.24),0 11px 40px 0 rgba(0,0,0,0.19);
 }
 

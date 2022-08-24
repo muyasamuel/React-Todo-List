@@ -19,8 +19,8 @@ function List({list, onDelete, clearAll, editItem}) {
                     {name}
                     
                 <div className={classes.action}>
-                   <button onClick={()=> editItem(id)}> Edit <FaEdit /></button> 
-                   <button onClick={() => onDelete(id)}> Delete <MdDelete /></button>
+                   <button className={classes.editBtn} onClick={()=> editItem(id)}> Edit <FaEdit /></button> 
+                   <button className={classes.deleteBtn} onClick={() => onDelete(id)}> Delete <MdDelete /></button>
                 </div>
                    
                     
