@@ -35,12 +35,14 @@ function App() {
 
   })
 
-
-  // const editItem = (id) => {
-  //   const actualItem = list.find((item) => item.id ===  id);
-  //   setEditing(true);
-  //   // setName(actualItem.name);
-  // }
+  const showAlertHandler = (show=false , type= '',msg='' )  => {
+    setAlert({show, type, msg})
+  }
+  const editItem = (id) => {
+    const actualItem = list.find((item) => item.id ===  id);
+    setEditing(true);
+    setName(actualItem.name);
+  }
 
   const onDeleteHandler = (id) => {
     const newList = list.filter((item) => item.id !== id);
@@ -51,21 +53,21 @@ function App() {
 
   const clearList = () => {
     setList([]);
-    setAlert({show: true, msg: ' Cleared the list ',  type: 'danger'})
+    showAlertHandler(true, 'danger', 'You have cleared the list');
   };
 
   const onSubmitHandler = (e) =>{
     e.preventDefault();
 
     if(name.trim() === ''){
-      setAlert({show: true, msg: ' Please input a VALUE',  type: 'danger'})
+      showAlertHandler(true, 'danger', 'Please input in a Value');
     }else{
       const newName = {
       id: Math.random().toString(16).slice(2),
       name: name,
     };
     setList([...list, newName]);
-    setAlert({show: true, msg: ' successful!!! You added a ToDo',  type: 'success'})
+    showAlertHandler(true, 'success', 'successful!!! Added a ToDo');
     setName('');
 
     }
@@ -79,7 +81,7 @@ function App() {
       <Header />
       
       <main className="main">
-        {alert.show && <Alert {...alert} />}
+        {alert.show && <Alert {...alert} onTimelyRemovingAlert={showAlertHandler} list={list}/>}
       <form className='inputDiv' onSubmit={onSubmitHandler}>
         <input
           className='inputField'
@@ -94,6 +96,7 @@ function App() {
           list={list}
           onDelete={onDeleteHandler}
           clearAll={clearList}
+          editItem={editItem}
          
          
         />
