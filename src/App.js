@@ -1,65 +1,68 @@
-
-import { useContext, useState } from 'react';
-import './App.css';
-import Header from './components/Header'
-import Input from './components/Input';
-import List from './components/List';
-import Alert from './components/Alert'
-import { alertContext } from './alert-context/alertContext';
+import { useContext, useState } from "react";
+import "./App.css";
+import Header from "./components/Header";
+import Input from "./components/Input";
+import List from "./components/List";
+import Alert from "./components/Alert";
+import { alertContext } from "./alert-context/alertContext";
 
 const todos = [
   {
-      id: 't1',
-      name: 'Do some general house cleaning'
+    id: "t1",
+    name: "Do some general house cleaning",
   },
   {
-      id: 't2',
-      name: 'Go for some shopping '
+    id: "t2",
+    name: "Go for some shopping ",
   },
   {
-      id: 't3',
-      name: 'Finish my assignments'
+    id: "t3",
+    name: "Finish my assignments",
   },
   {
-      id: 't4',
-      name: 'Do my project'
-  }
-
+    id: "t4",
+    name: "Do my project",
+  },
 ];
 
 function App() {
- const [ alert ] = useContext(alertContext)
-  const [ list , setList]  = useState(todos);
- 
+  const [alert] = useContext(alertContext);
+  const [list, setList] = useState(todos);
+  const [editing, setEditing] = useState(false);
 
 
+  const editItem = (id) => {
+    const actualItem = list.find((item) => item.id ===  id);
+    setEditing(true);
+    setName(actualItem.name);
+  }
 
   const onDeleteHandler = (id) => {
     const newList = list.filter((item) => item.id !== id);
     setList(newList);
-
   };
 
   const addTodoHandler = (newName) => {
     setList([...list, newName]);
-
   };
 
   const clearList = () => {
-    setList([])
-  }
-
+    setList([]);
+  };
 
   return (
     <div className="App">
-     <Header />
-     { alert.show && <Alert {...alert} />}
-     <main className='main'>
-      <Input onAddTodo = {addTodoHandler}  />
-     <List list={list} onDelete={onDeleteHandler} clearAll={clearList}/>
-     </main>
-    
-    
+      <Header />
+      {alert.show && <Alert {...alert} />}
+      <main className="main">
+        <Input onAddTodo={addTodoHandler}  editing={editing} />
+        <List
+          list={list}
+          onDelete={onDeleteHandler}
+          clearAll={clearList}
+         
+        />
+      </main>
     </div>
   );
 }

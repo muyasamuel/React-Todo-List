@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { alertContext } from "../alert-context/alertContext";
 import classes from "./Input.module.css";
 
-function Input(props) {
+function Input({onAddTodo, editing}) {
  const [  setAlert] =  useContext(alertContext)
   const [name, setName] = useState("");
 
@@ -33,7 +33,7 @@ function Input(props) {
      
 
 
-    props.onAddTodo(newName);
+    onAddTodo(newName);
 
     setName('');
 
@@ -47,7 +47,7 @@ function Input(props) {
         value={name}
         onChange={(e) => setName(e.target.value)}
       />
-      <button className={classes.actions}>Submit</button>
+      <button className={classes.actions}>{editing ? 'Edit' : 'Submit'}</button>
     </form>
   );
 }
