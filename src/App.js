@@ -1,7 +1,6 @@
 import {  useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
-import Input from "./components/Input";
 import List from "./components/List";
 import Alert from "./components/Alert";
 
@@ -25,7 +24,8 @@ const todos = [
 ];
 
 function App() {
- 
+
+ const [ name, setName] = useState('');
   const [list, setList] = useState(todos);
   const [editing, setEditing] = useState(false);
   const  [alert, setAlert] = useState({
@@ -47,20 +47,40 @@ function App() {
     setList(newList);
   };
 
-  const addTodoHandler = (newName) => {
-    setList([...list, newName]);
-  };
+
 
   const clearList = () => {
     setList([]);
   };
+
+  const onSubmitHandler = (e) =>{
+    e.preventDefault();
+
+ 
+    const newName = {
+      id: Math.random().toString(16).slice(2),
+      name: name,
+    };
+    setList([...list, newName]);
+    setName('');
+
+  }
 
   return (
     <div className="App">
       <Header />
       {alert.show && <Alert {...alert} />}
       <main className="main">
-        <Input onAddTodo={addTodoHandler}  editing={editing} />
+      <form className='inputDiv' onSubmit={onSubmitHandler}>
+        <input
+          className='inputField'
+          type="text"
+          placeholder=" eg... Finish my react projects"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <button className='actions'>{editing ? 'Edit' : 'Submit'}</button>
+      </form>
         <List
           list={list}
           onDelete={onDeleteHandler}
