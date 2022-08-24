@@ -27,6 +27,7 @@ function App() {
 
  const [ name, setName] = useState('');
   const [list, setList] = useState(todos);
+  const [ editId, setEditId] = useState(null)
   const [editing, setEditing] = useState(false);
   const  [alert, setAlert] = useState({
     show: false,
@@ -41,6 +42,7 @@ function App() {
   const editItem = (id) => {
     const actualItem = list.find((item) => item.id ===  id);
     setEditing(true);
+    setEditId(id);
     setName(actualItem.name);
   }
 
@@ -61,7 +63,19 @@ function App() {
 
     if(name.trim() === ''){
       showAlertHandler(true, 'danger', 'Please input in a Value');
-    }else{
+    }else if(name && editing){
+     setList(list.map((item)=> {
+      if(item.id === editId){
+         return {...item, name}
+      }
+      return item;
+     }));
+     setName('');
+     setEditing(false);
+     showAlertHandler(true, 'success', 'KUDOS!!! edited the item successfull')
+
+    }
+    else{
       const newName = {
       id: Math.random().toString(16).slice(2),
       name: name,
