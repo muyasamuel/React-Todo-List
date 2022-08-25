@@ -35,10 +35,12 @@ function App() {
     type: ''
 
   })
-
+  // alertShowing function
   const showAlertHandler = (show=false , type= '',msg='' )  => {
     setAlert({show, type, msg})
   }
+
+  //edit todo function
   const editItem = (id) => {
     const actualItem = list.find((item) => item.id ===  id);
     setEditing(true);
@@ -46,13 +48,14 @@ function App() {
     setName(actualItem.name);
   }
 
+  //delete function
   const onDeleteHandler = (id) => {
     const newList = list.filter((item) => item.id !== id);
     setList(newList);
   };
 
 
-
+  //clearAll list items function
   const clearList = () => {
     setList([]);
     showAlertHandler(true, 'danger', 'You have cleared the list');
@@ -60,6 +63,7 @@ function App() {
 
   const onSubmitHandler = (e) =>{
     e.preventDefault();
+    
 
     if(name.trim() === ''){
       showAlertHandler(true, 'danger', 'Please input in a Value');
